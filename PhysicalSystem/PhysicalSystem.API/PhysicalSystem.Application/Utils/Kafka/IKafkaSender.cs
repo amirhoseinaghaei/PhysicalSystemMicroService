@@ -1,4 +1,4 @@
-﻿using PhysicalSystem.Application.Dtos;
+﻿using PhysicalSystem.Dto.Dtos;
 using System;
 
 namespace PhysicalSystem.Application.Utils.Kafka
