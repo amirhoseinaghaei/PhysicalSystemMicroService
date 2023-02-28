@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysicalSystem.API", "PhysicalSystem.API\PhysicalSystem.API.csproj", "{FA648256-D69F-4947-881C-280ED5F6D181}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhysicalSystem.API", "PhysicalSystem.API\PhysicalSystem.API.csproj", "{FA648256-D69F-4947-881C-280ED5F6D181}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{CE6A3419-C947-4F43-BFB2-9E30754E05CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysicalSystem.Application", "PhysicalSystem.Application\PhysicalSystem.Application.csproj", "{0FC5DE25-C16C-4D32-9ECC-F5BE393BB1C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhysicalSystem.Application", "PhysicalSystem.Application\PhysicalSystem.Application.csproj", "{0FC5DE25-C16C-4D32-9ECC-F5BE393BB1C6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysicalSystem.Configuration", "PhysicalSystem.Configuration\PhysicalSystem.Configuration.csproj", "{4788375F-1BE0-431A-913F-91BA501248A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PhysicalSystem.Configuration", "PhysicalSystem.Configuration\PhysicalSystem.Configuration.csproj", "{4788375F-1BE0-431A-913F-91BA501248A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhysicalSystem.Dto", "PhysicalSystem.Dto\PhysicalSystem.Dto.csproj", "{1D15D8E3-A246-43FE-B56C-8A284BAF1158}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,12 +31,17 @@ Global
 		{4788375F-1BE0-431A-913F-91BA501248A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4788375F-1BE0-431A-913F-91BA501248A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4788375F-1BE0-431A-913F-91BA501248A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D15D8E3-A246-43FE-B56C-8A284BAF1158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D15D8E3-A246-43FE-B56C-8A284BAF1158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D15D8E3-A246-43FE-B56C-8A284BAF1158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D15D8E3-A246-43FE-B56C-8A284BAF1158}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0FC5DE25-C16C-4D32-9ECC-F5BE393BB1C6} = {CE6A3419-C947-4F43-BFB2-9E30754E05CD}
+		{1D15D8E3-A246-43FE-B56C-8A284BAF1158} = {CE6A3419-C947-4F43-BFB2-9E30754E05CD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {70C7D7C4-6CAD-44D0-AA79-9A14BA44795A}

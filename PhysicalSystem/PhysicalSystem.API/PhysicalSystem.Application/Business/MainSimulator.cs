@@ -21,6 +21,8 @@ namespace PhysicalSystem.Application.Business
         int _dataSize;
         IKafkaSender _kafkaSender;
         Random _random;
+        System.Timers.Timer timerToStartDataGeneration;
+
 
         public MainSimulator(IEnvironmentConfig environmentConfig, IKafkaSender kafkaSender)
         {
@@ -36,6 +38,13 @@ namespace PhysicalSystem.Application.Business
         }
       
         public void StartDataGeneration(object sender, System.EventArgs e)
+        { 
+            timerToStartDataGeneration = new System.Timers.Timer(15000);
+            timerToStartDataGeneration.Elapsed += TimerToStartDataGeneration_Elapsed;
+            timerToStartDataGeneration.Enabled = true;
+        }
+
+        private void TimerToStartDataGeneration_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
         {
             var DataSize = _dataSize;
             var matrix = markovChannels.ChannelTranstionProbabilityMatrix();
@@ -55,6 +64,19 @@ namespace PhysicalSystem.Application.Business
                     {
                         DataSize = DataSize - (int)InitialStateValue;
                         AoI = AoI  + 1;
+            var transmissionrates = markovChannels.GetMarkovChnnelsTransmissionRate();
+            isruning = true;
+
+                Task.Run(() =>
+                {
+                    while (isruning)
+                    {
+                    var AgeOfInformation = 0;
+
+                    if (DataSize > 0)
+                    {
+                        DataSize = DataSize - 10;
+                        AgeOfInformation += 1;
                         Thread.Sleep(1000);
                     }
                     else
@@ -62,7 +84,7 @@ namespace PhysicalSystem.Application.Business
                         //send to kafka
                         PhysicalSystemDataDto dataDto = new PhysicalSystemDataDto()
                         {
-                            AgeOFInformation = 5,
+                            AgeOFInformation = AgeOfInformation,
                             Data = 100
                         };
                         _kafkaSender.SendToKafka(dataDto);
@@ -82,10 +104,17 @@ namespace PhysicalSystem.Application.Business
                     }
                 }
             });
+                       
+                    }
+                }
+            });
+            
         }
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
+            
+           
 
             return Task.CompletedTask;
         }
